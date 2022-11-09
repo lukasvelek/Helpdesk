@@ -20,6 +20,17 @@ class Utils {
 
     return $password;
   }
+
+  function resolveErrorCode($errCode) {
+    $c = $errCode;
+
+    switch($c) {
+      case "100":
+        return "Account is blocked! Please contact an administrator.";
+      case "101":
+        return "Account does not exist! Please contact an administrator.";
+    }
+  }
 }
 
 ?>
