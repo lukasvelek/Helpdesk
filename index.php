@@ -43,29 +43,38 @@ $utils = new Utils();
         if(isset($_GET['ss'])) {
           $ss = htmlspecialchars($_GET['ss']);
 
-          $url = 'content/' . $p . '/' . $s . '/' . $ss . '.php';
+          $url_php = 'content/' . $p . '/' . $s . '/' . $ss . '.php';
+          $url_html = 'content/' . $p . '/' . $s . '/' . $ss . '.html';
 
-          if(file_exists($url)) {
-            include($url);
+          if(file_exists($url_php)) {
+            include($url_php);
+          } else if(file_exists($url_html)) {
+            include($url_html);
           } else {
-            include('content/' . $p . '/' . $s . '/' . $ss . '.html');
+            header('Location: ?p=error&eid=404');
           }
         } else {
-          $url = 'content/' . $p . '/' . $s . '/index.php';
+          $url_php = 'content/' . $p . '/' . $s . '/index.php';
+          $url_html = 'content/' . $p . '/' . $s . '/index.html';
 
-          if(file_exists($url)) {
-            include($url);
+          if(file_exists($url_php)) {
+            include($url_php);
+          } else if(file_exists($url_html)) {
+            include($url_html);
           } else {
-            include('content/' . $p . '/' . $s . '/index.html');
+            header('Location: ?p=error&eid=404');
           }
         }
       } else {
-        $url = 'content/' . $p . '/index.php';
+        $url_php = 'content/' . $p . '/index.php';
+        $url_html = 'content/' . $p . '/index.html';
 
-        if(file_exists($url)) {
-          include($url);
+        if(file_exists($url_php)) {
+          include($url_php);
+        } else if(file_exists($url_html)) {
+          include($url_html);
         } else {
-          include('content/' . $p . '/index.html');
+          header('Location: ?p=error&eid=404');
         }
       }
     } else {

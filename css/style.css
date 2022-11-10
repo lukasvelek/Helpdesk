@@ -12,3 +12,11 @@
 #login_form label {
   font-size: 20px;
 }
+
+.error-title {
+  font-size: 22px;
+}
+
+.error-text {
+  font-size: 18px;
+}

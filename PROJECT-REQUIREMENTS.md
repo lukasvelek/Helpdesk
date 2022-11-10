@@ -82,9 +82,9 @@ User profile is same as in user's perspective but there is a form that allows to
 - Full name (varchar 255)
 - User name (varchar 255)
 - Auto generated password (varchar 255)
-- Email (varchar 255)
+- Email (varchar 255 null)
 - Role (varchar 255)
-- Author ID (int 16)
+- Author ID (int 16 null)
 - Is blocked (int 2 null)
 
 ## Ticket information
@@ -92,6 +92,7 @@ User profile is same as in user's perspective but there is a form that allows to
 - Title (varchar 255)
 - Description (varchar 255)
 - Author ID (int 16)
+- Solver ID (int 16 null)
 - Current status (varchar 255)
 - Date created (current_timestamp)
 
@@ -100,3 +101,21 @@ User profile is same as in user's perspective but there is a form that allows to
 - Text (varchar 255)
 - Author ID (int 16)
 - Date created (current_timestamp)
+
+## Default values
+A default user account will be created and it's credentials will be:
+  - Username: root
+  - Password: root
+
+## User roles
+- guest (no role)
+- user (user role)
+- administrator (admin role)
+- super administrator (root role)
+
+## Ticket status
+- opened
+- postponed
+- closed
+- waiting_for_author
+- waiting_for_solver
