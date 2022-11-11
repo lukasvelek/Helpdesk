@@ -26,6 +26,10 @@ if($users_count == 1) {
       header('Location: ?p=user&s=login&ss=form&err=100');
     }
 
+    if($change_password == "1" || $change_password == 1) {
+      header('Location: ?p=user&s=login_change_password&ss=form&id=' . $id);
+    }
+
     setcookie('user_id', $id);
     setcookie('user_fullname', $fullname);
     setcookie('user_role', $role);

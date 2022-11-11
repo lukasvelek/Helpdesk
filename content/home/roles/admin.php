@@ -1,7 +1,9 @@
 <div class="row">
-  <div class="col-md-2">
-    <!-- MENU -->
-  </div>
+  <?php
+
+  include('content/_menus/admin_menu.html');
+
+  ?>
 
   <div class="col-md">
     <div class="row">
@@ -30,14 +32,47 @@
           </tr>
           <?php
 
-          $sql = "SELECT * FROM `tickets`
-                  WHERE
-                    `current_status` LIKE 'opened'
-                  OR
-                    `current_status` LIKE 'waiting_for_author'
-                  OR
-                    `current_status` LIKE 'waiting_for_solver'
-                  ORDER BY `id`";
+          $sql = "";
+
+          if(isset($_GET['f'])) {
+            $f = htmlspecialchars($_GET['f']);
+
+            switch($f) {
+              case "opened":
+                $sql = "SELECT * FROM `tickets`
+                        WHERE
+                          `current_status` LIKE 'opened'
+                        ORDER BY `id`";
+
+                break;
+              case "closed":
+                $sql = "SELECT * FROM `tickets`
+                        WHERE
+                          `current_status` LIKE 'closed'
+                        ORDER BY `id`";
+
+                break;
+              case "postponed":
+                $sql = "SELECT * FROM `tickets`
+                        WHERE
+                          `current_status` LIKE 'postponed'
+                        ORDER BY `id`";
+
+                break;
+              case "waiting":
+                $sql = "SELECT * FROM `tickets`
+                        WHERE
+                          `current_status` LIKE 'waiting_for_author'
+                        OR
+                          `current_status` LIKE 'waiting_for_solver'
+                        ORDER BY `id`";
+
+                break;
+            }
+          } else {
+            $sql = "SELECT * FROM `tickets`
+                    ORDER BY `id`";
+          }
 
           $tickets = $db->query($sql);
           $ticket_count = $db->numRows($sql);

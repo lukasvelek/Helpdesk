@@ -9,6 +9,10 @@ switch($role) {
     include('content/' . $p . '/roles/user.php');
     break;
 
+  case "technician":
+    include('content/' . $p . '/roles/technician.php');
+    break;
+
   default:
     include('content/' . $p . '/roles/admin.php');
     break;

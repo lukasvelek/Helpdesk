@@ -1,0 +1,61 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+    $.ajax({
+      type: "GET",
+      url: "api/generate_password.php",
+      dataType: "html",
+      success: function(data) {
+        $('#password').val(data);
+      }
+    })
+  });
+</script>
+
+<div class="row">
+  <div class="col-md-4"></div>
+
+  <div class="col-md">
+    <div id="new_user_form">
+      <span class="form-title">New user</span>
+      <form action="?p=user&s=new&ss=process" method="POST">
+        <label for="fullname">Fullname: </label>
+        <br>
+        <input type="text" name="fullname" maxlength="255" required>
+        <br>
+        <br>
+
+        <label for="username">Username: </label>
+        <br>
+        <input type="text" name="username" maxlength="255" required>
+        <br>
+        <br>
+
+        <label for="password">Password: </label>
+        <br>
+        <input type="text" name="password" id="password" maxlength="255" required>
+        <br>
+        <br>
+
+        <label for="email">Email: </label>
+        <br>
+        <input type="email" name="email" maxlength="255">
+        <br>
+        <br>
+
+        <label for="role">Role: </label>
+        <br>
+        <select name="role">
+          <option value="user">User</option>
+          <option value="technician">Technician</option>
+          <option value="admin">Admin</option>
+        </select>
+        <br>
+        <br>
+
+        <input type="submit" value="Create">
+      </form>
+    </div>
+  </div>
+
+  <div class="col-md-4"></div>
+</div>

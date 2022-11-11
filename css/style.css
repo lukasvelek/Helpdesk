@@ -1,15 +1,21 @@
+body {
+  overflow-x: hidden;
+}
+
 #login_form {
   text-align: center;
 }
 
-#login_form input[type=text], #login_form input[type=password], #login_form input[type=submit] {
+#login_form input[type=text], #login_form input[type=password], #login_form input[type=submit],
+#login_form select, #new_user_form select,
+#new_user_form input[type=text], #new_user_form input[type=password], #new_user_form input[type=submit] {
   width: 100%;
   height: 3em;
 
   font-size: 20px;
 }
 
-#login_form label {
+#login_form label, #new_user_form label {
   font-size: 20px;
 }
 
@@ -19,4 +25,26 @@
 
 .error-text {
   font-size: 18px;
+}
+
+.menu-item-link {
+  font-size: 20px;
+
+  text-decoration: none;
+
+  color: black;
+}
+
+.menu-item-title {
+  font-size: 22px;
+}
+
+#userlist, #ticketlist {
+  width: 100%;
+
+  text-align: center;
+}
+
+.form-title {
+  font-size: 25px;
 }

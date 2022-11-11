@@ -110,6 +110,7 @@ A default user account will be created and it's credentials will be:
 ## User roles
 - guest (no role)
 - user (user role)
+- technician (technician role)
 - administrator (admin role)
 - super administrator (root role)
 
